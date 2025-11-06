@@ -1,0 +1,119 @@
+:root {
+    --primary-blue: #2b6cb0;
+    --secondary-blue: #4299e1;
+    --light-blue: #ebf8ff;
+    --dark-blue: #2c5282;
+    --white: #ffffff;
+    --gray: #718096;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--light-blue);
+    padding: 2rem;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--secondary-blue);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+}
+
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.book-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-cover {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.book-title {
+    font-size: 1.25rem;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.book-author {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.book-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--gray);
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .books-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .book-card {
+        padding: 1rem;
+    }
+
+    .book-cover {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .books-container {
+        grid-template-columns: 1fr;
+    }
+}
